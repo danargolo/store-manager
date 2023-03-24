@@ -10,17 +10,15 @@ const mockAllProducts = [
   {
     "id": 3,
     "name": "Escudo do Capitão América"
-    }],
-  []
+    }]
 ];
 const mockProduct = [
   [{
     "id": 1,
     "name": "Martelo de Thor"
   }],
-  []  
-]
-
+  []
+];
 
 module.exports = {
   mockAllProducts,
