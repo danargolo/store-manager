@@ -12,15 +12,12 @@ const mockAllProducts = [
     "name": "Escudo do Capitão América"
     }]
 ];
-const mockProduct = [
-  [{
-    "id": 1,
-    "name": "Martelo de Thor"
-  }],
-  []
-];
+const mockInsertProduct = {
+  "name": "Chave de Fenda Sônica"
+};
+
 
 module.exports = {
   mockAllProducts,
-  mockProduct,
+  mockInsertProduct,
 }

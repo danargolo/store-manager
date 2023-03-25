@@ -9,11 +9,12 @@ describe('Teste de unidade do services', () => {
   afterEach(() => sinon.restore());
 
   it('retorno de todos produtos', async () => {
-    sinon.stub(productsModel, 'getAll').resolves(mockAllProducts);
+    sinon.stub(productsModel, 'getAll').resolves([mockAllProducts]);
 
     const result = await productsService.getAll();
+    console.log(result);
 
-    expect([result.message]).to.be.deep.equal([mockAllProducts])
+    expect(result.message).to.be.deep.equal(mockAllProducts)
   });
 
   it('retorno de um produto', async () => {

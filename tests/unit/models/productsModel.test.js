@@ -11,7 +11,7 @@ describe('Teste de unidade do models', () => {
   it('retorno de todos produtos', async () => {
     sinon.stub(connection, 'execute').resolves([mockAllProducts]);
     
-    const result = await productsModel.getAll();
+    const [result] = await productsModel.getAll();
     
     expect(result).to.be.deep.equal(mockAllProducts)
   });
