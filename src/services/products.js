@@ -18,6 +18,7 @@ const insertProduct = async (name) => {
     id: products.insertId,
     name,
   };
+
   return { type: null, message: response };
 };
 

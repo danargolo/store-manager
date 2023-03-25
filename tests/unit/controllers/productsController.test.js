@@ -8,60 +8,85 @@ chai.use(sinonChai);
 const { produtsController } = require('../../../src/controllers');
 
 const { productsService } = require('../../../src/services');
-const { mockAllProducts } = require('../mock/mockProducts');
+const { mockAllProducts, mockInsertProduct } = require('../mock/mockProducts');
+
 
 describe('Teste de unidade do controllers', () => {
-  afterEach(() => sinon.restore());
 
-  it('retorno de todos produtos', async () => {
-    const res = {};
-    const req = {};
+  describe('Testes do method GET', () => {
+    afterEach(() => sinon.restore());
 
-    res.status = sinon.stub().returns(res);
-    res.json = sinon.stub().returns();
+    it('retorno de todos produtos', async () => {
+      const res = {};
+      const req = {};
 
-    sinon.stub(productsService, 'getAll').resolves({status: 200, message: [mockAllProducts[0]]});
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
 
-    await produtsController.getAll(req, res);
+      sinon.stub(productsService, 'getAll').resolves({ status: 200, message: [mockAllProducts[0]] });
 
-    expect(res.status).to.have.been.calledWith(200)
-    expect(res.json).to.have.been.calledWith([mockAllProducts[0]])
+      await produtsController.getAll(req, res);
+
+      expect(res.status).to.have.been.calledWith(200)
+      expect(res.json).to.have.been.calledWith([mockAllProducts[0]])
+    });
+
+    it('retorno de um produto', async () => {
+      const res = {};
+      const req = {
+        params: {
+          id: 1,
+        }
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productsService, 'getById').resolves({ message: [mockAllProducts[0]] });
+
+      await produtsController.getById(req, res);
+
+      expect(res.status).to.have.been.calledWith(200);
+      expect(res.json).to.have.been.calledWith([mockAllProducts[0]]);
+    });
+    it('retorna erro, caso, não encontre o ID', async () => {
+      const res = {};
+      const req = {
+        params: {
+          id: 50,
+        }
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productsService, 'getById').resolves({ type: 'PRODUCT NOT FOUND', message: 'Product not found' });
+
+      await produtsController.getById(req, res);
+
+      expect(res.status).to.have.been.calledWith(404)
+      expect(res.json).to.have.been.calledWith({ message: 'Product not found' })
+    });
   });
+  describe('Testes do method POST', () => {
+    afterEach(() => sinon.restore());
 
-  it('retorno de um produto', async () => {
-    const res = {};
-    const req = {
-      params: {
-        id: 1,
-      }
-    };
+    it('Verifica retorno ao adicionar um novo produto', async () => {
+      const res = {};
+      const req = {
+        body: {
+          name: "Chave de Fenda Sônica",
+        },
+      };
 
-    res.status = sinon.stub().returns(res);
-    res.json = sinon.stub().returns();
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'insertProduct').resolves(mockInsertProduct);
 
-    sinon.stub(productsService, 'getById').resolves({ message: [mockAllProducts[0]]});
-
-    await produtsController.getById(req, res);
-
-    expect(res.status).to.have.been.calledWith(200);
-    expect(res.json).to.have.been.calledWith([mockAllProducts[0]]);
-  });
-  it('retorna erro, caso, não encontre o ID', async () => {
-    const res = {};
-    const req = {
-      params: {
-        id: 50,
-      }
-    };
-
-    res.status = sinon.stub().returns(res);
-    res.json = sinon.stub().returns();
-
-    sinon.stub(productsService, 'getById').resolves({ type: 'PRODUCT NOT FOUND', message: 'Product not found' });
-
-    await produtsController.getById(req, res);
-
-    expect(res.status).to.have.been.calledWith(404)
-    expect(res.json).to.have.been.calledWith({ message: 'Product not found' })
-  });
+      await produtsController.insertProduct(req, res);
+      
+      expect(res.status).to.be.have.been.calledWith(201)
+      expect(res.json).to.be.have.been.calledWith({ id: 1, name: "Chave de Fenda Sônica" });
+    })
+  })
 });
