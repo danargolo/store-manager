@@ -29,8 +29,16 @@ const insertSale = async (body) => {
   return { type: null, message: data };
 };
 
+const deleteSale = async (id) => {
+  const [response] = await salesModel.deleteSale(id);
+  console.log(response, 'services');
+
+  return response;
+};
+
 module.exports = {
   getAll,
   getById,
   insertSale,
+  deleteSale,
 };
