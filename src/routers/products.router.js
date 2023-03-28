@@ -9,6 +9,7 @@ router
   .get('/', produtsController.getAll)
   .get('/:id', produtsController.getById)
   .post('/', validationProducts.product, produtsController.insertProduct)
-  .put('/:id', validationProducts.product, produtsController.updateProduct);
+  .put('/:id', validationProducts.product, produtsController.updateProduct)
+  .delete('/:id', produtsController.deleteProduct);
 
 module.exports = router;
