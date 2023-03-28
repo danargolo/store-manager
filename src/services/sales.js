@@ -15,4 +15,3 @@ const insertSale = async (body) => {
 module.exports = {
   insertSale,
 };
-
