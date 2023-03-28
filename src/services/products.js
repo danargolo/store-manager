@@ -28,7 +28,6 @@ const updateProduct = async (name, id) => {
     id,
     name,
   };
-  console.log(response);
   return response;
 };
 

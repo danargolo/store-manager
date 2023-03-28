@@ -11,7 +11,7 @@ const getAll = async () => {
                     ORDER BY s.id, sp.product_id;`;
   
   const response = await connection.execute(QUERY);
-  
+
   return response;
 };
 
@@ -26,6 +26,7 @@ const getById = async (id) => {
                     ORDER BY s.id, sp.product_id;`;
   
   const response = await connection.execute(QUERY, [id]);
+
   return response;
 };
 

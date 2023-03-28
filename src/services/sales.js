@@ -2,13 +2,13 @@ const { salesModel } = require('../models');
 
 const getAll = async () => {
   const [sales] = await salesModel.getAll();
-  console.log(sales);
+
   return sales;
 };
 
 const getById = async (id) => {
   const [sale] = await salesModel.getById(id);
-  console.log(sale);
+
   if (sale.length === 0) {
     return {
       type: 'SALE NOT FOUND', message: 'Sale not found',

@@ -17,7 +17,7 @@ const sale = async (req, res, next) => {
   const { error } = salesSchema.validate(bodySales);
   if (error) {
     const { status, message } = await handleError(error);
-    console.log(status, message);
+
     return res.status(status).json({ message });
   }
   return next();
