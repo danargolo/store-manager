@@ -8,7 +8,7 @@ chai.use(sinonChai);
 const { produtsController } = require('../../../src/controllers');
 
 const { productsService } = require('../../../src/services');
-const { mockAllProducts, mockInsertProduct, mockUpdateProduct } = require('../mock/mockProducts');
+const { mockAllProducts, mockInsertProduct, mockInsert } = require('../mock/mockProducts');
 
 
 describe('Teste de unidade do controllers para Products', () => {
@@ -131,6 +131,45 @@ describe('Teste de unidade do controllers para Products', () => {
 
       await produtsController.updateProduct(req, res);
       
+      expect(res.status).to.be.have.been.calledWith(404)
+      expect(res.json).to.be.have.been.calledWith({ message: 'Product not found' });
+    })
+  })
+  describe('Testes do method DELETE', () => {
+    afterEach(() => sinon.restore());
+
+    it('Verifica se é possivel deletar um produto', async () => {
+      const res = {};
+      const req = {
+        params: {
+          id: 1
+        }
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productsService, 'getById').resolves({ type: null, message: '' });
+      sinon.stub(productsService, 'deleteProduct').resolves(mockInsert);
+
+      await produtsController.deleteProduct(req, res);
+
+      expect(res.status).to.be.have.been.calledWith(204)
+    })
+    it('Verifica retorno ao tentar alterar produto inexistente', async () => {
+      const res = {};
+      const req = {
+        params: {
+          id: 10
+        }
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'getById').resolves({ type: 'PRODUCT NOT FOUND', message: 'Product not found' });
+
+      await produtsController.deleteProduct(req, res);
+
       expect(res.status).to.be.have.been.calledWith(404)
       expect(res.json).to.be.have.been.calledWith({ message: 'Product not found' });
     })

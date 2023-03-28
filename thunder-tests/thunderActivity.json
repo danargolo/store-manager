@@ -37,11 +37,11 @@
     "colId": "history",
     "containerId": "",
     "name": "Delete Produto",
-    "url": "http://localhost:3001/products/3",
+    "url": "http://localhost:3001/products/6",
     "method": "DELETE",
     "sortNum": 0,
     "created": "2023-03-23T20:15:57.245Z",
-    "modified": "2023-03-28T16:21:08.463Z",
+    "modified": "2023-03-28T16:40:54.865Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -55,12 +55,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-25T00:36:58.617Z",
-    "modified": "2023-03-26T23:00:17.582Z",
+    "modified": "2023-03-28T16:35:53.994Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Chave de Fenda Sônica\"\n}",
+      "raw": "{\n  \"name\": \"Chave de Fenda Sônicaa\"\n}",
       "form": []
     },
     "tests": []
@@ -74,7 +74,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-25T01:39:48.270Z",
-    "modified": "2023-03-25T03:36:46.628Z",
+    "modified": "2023-03-28T16:36:08.865Z",
     "headers": [],
     "params": [],
     "tests": []

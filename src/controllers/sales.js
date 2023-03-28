@@ -2,7 +2,7 @@ const { salesService } = require('../services');
 
 const getAll = async (_req, res) => {
   const message = await salesService.getAll();
-  console.log(message);
+
   return res.status(200).json(message);
 };
 

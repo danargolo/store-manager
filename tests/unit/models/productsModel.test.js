@@ -46,4 +46,15 @@ describe('Teste de unidade do models', () => {
       expect(result[0].affectedRows).to.be.equal(1);
     })
   })
+  describe('Testes do method DELETE', () => {
+    afterEach(() => sinon.restore());
+
+    it('Verifica se é possivel deletar um produto', async () => {
+      sinon.stub(connection, 'execute').resolves(mockInsert);
+
+      const result = await productsModel.deleteProduct(1);
+
+      expect(result[0].affectedRows).to.be.equal(1);
+    })
+  })
 });

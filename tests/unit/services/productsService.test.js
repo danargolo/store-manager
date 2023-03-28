@@ -58,4 +58,15 @@ describe('Teste de unidade do services para Products', () => {
       expect(result).to.be.deep.equal({ id: 2, name: 'Talisma do Porco' });
     })
   })
+  describe('Testes do method DELETE', () => {
+    afterEach(() => sinon.restore());
+
+    it('Verifica se é possivel deletar um produto', async () => {
+      sinon.stub(productsModel, 'deleteProduct').resolves(mockInsert);
+
+      const result = await productsService.deleteProduct(1);
+
+      expect(result.affectedRows).to.be.equal(1);
+    })
+  })
 });
