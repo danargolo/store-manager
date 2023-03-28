@@ -32,9 +32,9 @@ const updateProduct = async (name, id) => {
 };
 
 const deleteProduct = async (id) => {
-  const [ response ] = await productsModel.deleteProduct(id);
+  const [response] = await productsModel.deleteProduct(id);
 
-  return response
+  return response;
 };
 
 module.exports = {
