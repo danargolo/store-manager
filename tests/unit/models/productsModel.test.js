@@ -36,4 +36,14 @@ describe('Teste de unidade do models', () => {
       expect(result[0].insertId).to.be.equal(1);
     })
   })
+  describe('Testes do method PUT', () => {
+    afterEach(() => sinon.restore());
+
+    it('Verifica retorno ao alterar produto existente', async () => {
+      sinon.stub(connection, 'execute').resolves(mockInsert);
+
+      const result = await productsModel.updateProduct('Talisma do Porco', 2);
+      expect(result[0].affectedRows).to.be.equal(1);
+    })
+  })
 });

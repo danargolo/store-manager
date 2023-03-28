@@ -10,8 +10,17 @@ const mockAllProducts = [
   {
     "id": 3,
     "name": "Escudo do Capitão América"
-    }]
+    }],
+  []
 ];
+
+const mockProduct = [
+  [{
+    "id": 1,
+    "name": "Pokeball"
+  }]
+];
+
 const mockInsert = [
   {
     fieldCount: 0,
@@ -31,6 +40,11 @@ const mockInsertProduct = {
     "name": "Chave de Fenda Sônica"
   }
 };
+
+const mockUpdateProduct = {
+  id: 2,
+  name: 'Talisma do Porco'
+}
   
 
 
@@ -38,6 +52,8 @@ const mockInsertProduct = {
 
 module.exports = {
   mockAllProducts,
+  mockProduct,
   mockInsertProduct,
   mockInsert,
+  mockUpdateProduct
 }
