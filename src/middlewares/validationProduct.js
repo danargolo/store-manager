@@ -1,6 +1,6 @@
 const { productSchema } = require('../schemas/productSchema');
 
-const validationProduct = (req, res, next) => {
+const product = (req, res, next) => {
   const { name } = req.body;
   const { error } = productSchema.validate(name);
 
@@ -16,5 +16,5 @@ const validationProduct = (req, res, next) => {
 };
 
 module.exports = {
-  validationProduct,
+  product,
 };

@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-25T00:36:58.617Z",
-    "modified": "2023-03-25T04:56:40.807Z",
+    "modified": "2023-03-26T23:00:17.582Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Cvaaa\"\n}",
+      "raw": "{\n  \"name\": \"Chave de Fenda Sônica\"\n}",
       "form": []
     },
     "tests": []
@@ -44,6 +44,39 @@
     "modified": "2023-03-25T03:36:46.628Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f7e242b8-8f27-4a97-8a25-170e624a4033",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-25T01:39:48.270Z",
+    "modified": "2023-03-25T06:50:07.013Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "37d73a8c-7a16-413a-ae00-d9eee86e0d71",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-25T01:39:48.270Z",
+    "modified": "2023-03-28T03:02:05.633Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\":2,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
+      "form": []
+    },
     "tests": []
   },
   {
