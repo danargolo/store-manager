@@ -5,7 +5,7 @@ const sinonChai = require('sinon-chai');
 
 chai.use(sinonChai);
 
-const { produtsController } = require('../../../src/controllers');
+const { productsController } = require('../../../src/controllers');
 
 const { productsService } = require('../../../src/services');
 const { mockAllProducts, mockInsertProduct, mockInsert } = require('../mock/mockProducts');
@@ -25,7 +25,7 @@ describe('Teste de unidade do controllers para Products', () => {
 
       sinon.stub(productsService, 'getAll').resolves(mockAllProducts);
 
-      await produtsController.getAll(req, res);
+      await productsController.getAll(req, res);
 
       expect(res.status).to.have.been.calledWith(200)
       expect(res.json).to.have.been.calledWith(mockAllProducts)
@@ -44,7 +44,7 @@ describe('Teste de unidade do controllers para Products', () => {
 
       sinon.stub(productsService, 'getById').resolves({ message: [mockAllProducts[0]] });
 
-      await produtsController.getById(req, res);
+      await productsController.getById(req, res);
 
       expect(res.status).to.have.been.calledWith(200);
       expect(res.json).to.have.been.calledWith([mockAllProducts[0]]);
@@ -62,7 +62,7 @@ describe('Teste de unidade do controllers para Products', () => {
 
       sinon.stub(productsService, 'getById').resolves({ type: 'PRODUCT NOT FOUND', message: 'Product not found' });
 
-      await produtsController.getById(req, res);
+      await productsController.getById(req, res);
 
       expect(res.status).to.have.been.calledWith(404)
       expect(res.json).to.have.been.calledWith({ message: 'Product not found' })
@@ -83,7 +83,7 @@ describe('Teste de unidade do controllers para Products', () => {
       res.json = sinon.stub().returns();
       sinon.stub(productsService, 'insertProduct').resolves(mockInsertProduct);
 
-      await produtsController.insertProduct(req, res);
+      await productsController.insertProduct(req, res);
       
       expect(res.status).to.be.have.been.calledWith(201)
       expect(res.json).to.be.have.been.calledWith({ id: 1, name: "Chave de Fenda Sônica" });
@@ -109,7 +109,7 @@ describe('Teste de unidade do controllers para Products', () => {
       sinon.stub(productsService, 'getById').resolves({type:null, message:''})
       sinon.stub(productsService, 'updateProduct').resolves({ id: 2, name: 'Talisma do Porco' });
 
-      await produtsController.updateProduct(req, res);
+      await productsController.updateProduct(req, res);
       
       expect(res.status).to.be.have.been.calledWith(200)
       expect(res.json).to.be.have.been.calledWith({ id: 2, name: 'Talisma do Porco' });
@@ -129,7 +129,7 @@ describe('Teste de unidade do controllers para Products', () => {
       res.json = sinon.stub().returns();
       sinon.stub(productsService, 'getById').resolves({ type: 'PRODUCT NOT FOUND', message: 'Product not found' });
 
-      await produtsController.updateProduct(req, res);
+      await productsController.updateProduct(req, res);
       
       expect(res.status).to.be.have.been.calledWith(404)
       expect(res.json).to.be.have.been.calledWith({ message: 'Product not found' });
@@ -152,7 +152,7 @@ describe('Teste de unidade do controllers para Products', () => {
       sinon.stub(productsService, 'getById').resolves({ type: null, message: '' });
       sinon.stub(productsService, 'deleteProduct').resolves(mockInsert);
 
-      await produtsController.deleteProduct(req, res);
+      await productsController.deleteProduct(req, res);
 
       expect(res.status).to.be.have.been.calledWith(204)
     })
@@ -168,7 +168,7 @@ describe('Teste de unidade do controllers para Products', () => {
       res.json = sinon.stub().returns();
       sinon.stub(productsService, 'getById').resolves({ type: 'PRODUCT NOT FOUND', message: 'Product not found' });
 
-      await produtsController.deleteProduct(req, res);
+      await productsController.deleteProduct(req, res);
 
       expect(res.status).to.be.have.been.calledWith(404)
       expect(res.json).to.be.have.been.calledWith({ message: 'Product not found' });
