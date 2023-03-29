@@ -37,10 +37,18 @@ const deleteProduct = async (id) => {
   return response;
 };
 
+const getByQuery = async (q) => {
+  const queryAdapted = `%${q}%`;
+  const [response] = await productsModel.getByQuery(queryAdapted);
+
+  return response;
+};
+
 module.exports = {
   getAll,
   getById,
   insertProduct,
   updateProduct,
   deleteProduct,
+  getByQuery,
 };

@@ -1,15 +1,16 @@
 const express = require('express');
 
-const { produtsController } = require('../controllers');
+const { productsController } = require('../controllers');
 const { validationProducts } = require('../middlewares');
 
 const router = express.Router();
 
 router
-  .get('/', produtsController.getAll)
-  .get('/:id', produtsController.getById)
-  .post('/', validationProducts.product, produtsController.insertProduct)
-  .put('/:id', validationProducts.product, produtsController.updateProduct)
-  .delete('/:id', produtsController.deleteProduct);
+  .get('/', productsController.getAll)
+  .get('/search', productsController.getByQuery)
+  .get('/:id', productsController.getById)
+  .post('/', validationProducts.product, productsController.insertProduct)
+  .put('/:id', validationProducts.product, productsController.updateProduct)
+  .delete('/:id', productsController.deleteProduct);
 
 module.exports = router;

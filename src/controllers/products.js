@@ -47,9 +47,21 @@ const deleteProduct = async (req, res) => {
   return res.status(204).json();
 };
 
+const getByQuery = async (req, res) => {
+  const { q } = req.query;
+  const data = await productsService.getByQuery(q);
+
+  if (data.length === 0) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+
+  return res.status(200).json(data);
+};
+
 module.exports = {
   getAll,
   getById,
+  getByQuery,
   insertProduct,
   updateProduct,
   deleteProduct,

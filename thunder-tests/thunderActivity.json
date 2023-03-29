@@ -88,12 +88,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-25T00:36:58.617Z",
-    "modified": "2023-03-28T18:18:21.584Z",
+    "modified": "2023-03-29T02:06:28.756Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"teste2\"\n}",
+      "raw": "{\n  \"name\": \"Escama\"\n}",
       "form": []
     },
     "tests": []
@@ -150,13 +150,33 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/products/1",
-    "url": "http://localhost:3001/products/1",
+    "url": "http://localhost:3001/products/2",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-25T01:40:25.196Z",
-    "modified": "2023-03-25T01:40:25.196Z",
+    "modified": "2023-03-29T03:34:28.699Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "00eeca0b-5ce3-456c-8673-fe35178643f0",
+    "colId": "history",
+    "containerId": "",
+    "name": "Busca por termo",
+    "url": "http://localhost:3001/products/search?q=",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-25T01:40:25.196Z",
+    "modified": "2023-03-29T03:35:47.168Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "",
+        "isPath": false
+      }
+    ],
     "tests": []
   },
   {
