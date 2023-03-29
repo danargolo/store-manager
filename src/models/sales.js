@@ -55,10 +55,31 @@ const deleteSale = async (id) => {
   return response;
 };
 
+const updateSale = async (id) => {
+  const QUERY = 'UPDATE StoreManager.sales SET date = NOW() WHERE id = ?;';
+  const response = await connection.execute(QUERY, [id]);
+
+  return response;
+};
+
+const updateSaleProducts = async (id, body) => {
+  console.log(body);
+  const QUERY = `UPDATE StoreManager.sales_products 
+                SET quantity = ? WHERE product_id = ? AND sale_id = ?;`;
+  
+  Promise.all(body.map(async (p) => {
+    await connection.execute(QUERY, [p.quantity, p.productId, id]);
+  }));
+
+  return true;
+};
+
 module.exports = {
   getAll,
   getById,
   insertSale,
   insertSaleProducts,
   deleteSale,
+  updateSale,
+  updateSaleProducts,
 };

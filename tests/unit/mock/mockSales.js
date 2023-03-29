@@ -32,7 +32,7 @@ const mockInsert = [
     fieldCount: 0,
     affectedRows: 1,
     insertId: 1,
-    info: '',
+    info: 'Rows matched: 1  Changed: 1  Warnings: 0',
     serverStatus: 2,
     warningStatus: 0
   },

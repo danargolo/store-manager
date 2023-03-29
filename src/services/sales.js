@@ -36,9 +36,28 @@ const deleteSale = async (id) => {
   return response;
 };
 
+const updateSale = async (id, body) => {
+  const { type, message } = await getById(id);
+  
+  if (type) {
+    return { type: 'SALE NOT FOUND', message };
+  }
+
+  await salesModel.updateSale(id);
+  
+  await salesModel.updateSaleProducts(id, body);
+
+  const data = {
+    saleId: id,
+    itemsUpdated: body,
+  };
+  return { type: null, message: data };
+};
+
 module.exports = {
   getAll,
   getById,
   insertSale,
   deleteSale,
+  updateSale,
 };

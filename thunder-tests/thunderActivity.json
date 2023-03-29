@@ -37,11 +37,11 @@
     "colId": "history",
     "containerId": "",
     "name": "Delete Produto",
-    "url": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales/3",
     "method": "DELETE",
     "sortNum": 0,
     "created": "2023-03-23T20:15:57.245Z",
-    "modified": "2023-03-28T17:20:58.531Z",
+    "modified": "2023-03-28T18:16:59.000Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -61,6 +61,25 @@
     "tests": []
   },
   {
+    "_id": "c3e28537-9d90-40b1-9526-2b38f502bbdb",
+    "colId": "history",
+    "containerId": "",
+    "name": "Update Sale Date",
+    "url": "http://localhost:3001/sales/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-23T20:15:57.245Z",
+    "modified": "2023-03-29T01:30:16.823Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
     "_id": "ac37631e-a76c-44e3-8d05-8114c8c11941",
     "colId": "history",
     "containerId": "",
@@ -69,12 +88,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-25T00:36:58.617Z",
-    "modified": "2023-03-28T16:35:53.994Z",
+    "modified": "2023-03-28T18:18:21.584Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Chave de Fenda Sônicaa\"\n}",
+      "raw": "{\n  \"name\": \"teste2\"\n}",
       "form": []
     },
     "tests": []
@@ -116,12 +135,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-25T01:39:48.270Z",
-    "modified": "2023-03-28T17:13:08.538Z",
+    "modified": "2023-03-28T18:22:04.325Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\":9,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 7,\n    \"quantity\": 50\n  }\n]",
+      "raw": "[\n  {\n    \"productId\":5,\n    \"quantity\": 15\n  },\n  {\n    \"productId\": 4,\n    \"quantity\": 1\n  }\n]",
       "form": []
     },
     "tests": []
